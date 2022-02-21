@@ -1,5 +1,7 @@
 class MyCar
 
+    @@gas_mileage = 0
+
     attr_accessor :color
     attr_reader :year
 
@@ -33,6 +35,15 @@ class MyCar
         self.color = new_color
         puts "I want my car to be spray painted #{self.color}"
     end
+
+    def self.total_gas_mileage(value)
+        @@gas_mileage += value
+        puts "Your total gas mileage is #{@@gas_mileage}"
+    end 
+
+    def to_s 
+        "My car is a #{color}, #{year}, #{@model}!"
+    end 
   end
   
   lumina = MyCar.new(1997, 'chevy lumina', 'white')
@@ -52,3 +63,7 @@ class MyCar
   puts "The car's year of manufacture is #{lumina.year}"
   puts ''
   lumina.spray_paint("metallic grey")
+  puts ''
+  MyCar.total_gas_mileage(100)
+  puts ''
+  puts lumina
